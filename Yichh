@@ -1,0 +1,41 @@
+-- ==========================================
+-- ชื่อสคริปต์: RedResultPro
+-- ==========================================
+
+local ScriptConfig = {
+    ScriptName = "RedResultPro",
+    AutoFoodBox = true,
+    ForceRedResult = true
+}
+
+-- 1. ฟังก์ชัน Box Food (ระบบกล่องอาหาร)
+local function OpenFoodBox()
+    print("[Box Food] เปิดกล่องอาหารสำเร็จ!")
+    -- ใส่โค้ดหลักของระบบกล่องอาหารตรงนี้
+end
+
+-- 2. ฟังก์ชันบังคับผลลัพธ์ให้เป็น "ผลแดงตลอด"
+local function GetResult()
+    if ScriptConfig.ForceRedResult then
+        print("[Result System] ผลลัพธ์: ผลแดง (Red Result) - บังคับสำเร็จ!")
+        return "RED_RESULT"
+    else
+        print("[Result System] ผลลัพธ์ปกติ")
+        return "NORMAL_RESULT"
+    end
+end
+
+-- ส่วนประมวลผลการทำงานหลัก
+local function Main()
+    print("=== เริ่มต้นการทำงาน: " .. ScriptConfig.ScriptName .. " ===")
+    
+    if ScriptConfig.AutoFoodBox then
+        OpenFoodBox()
+    end
+    
+    GetResult()
+    
+    print("=== ทำงานเสร็จสิ้น ===")
+end
+
+Main()
